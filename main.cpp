@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 
 struct studentai {
@@ -60,13 +61,16 @@ int naujasStudentas(int& studentusk, studentai*& M){
             }
             else{
             while(true){
-                cout << endl << "Iveskite studento namu darbu pazymius (Iveskite ne skaiciu, kad baigtumete irasyma): " << endl;
-                int p;
+                cout << endl << "Iveskite studento namu darbu pazymius (Iveskite ne skaiciu arba 0, kad baigtumete irasyma): " << endl;
+                string p;
                 cin >> p;
-                if(!cin.fail()){
-                    masyvod++;
-                    namudarbai.push_back(p);
+                int x = atoi(p.c_str());
+                if(x!=0){
+                    if(x-floor(x)==0){
+                        masyvod++;
+                        namudarbai.push_back(x);
                     }
+                }
                 else{
                     cin.clear();
                     cin.ignore(100, '\n');
@@ -74,10 +78,13 @@ int naujasStudentas(int& studentusk, studentai*& M){
                     while(true){
                         cout << "Iveskite egzamino rezultata: ";
                         cin >> p;
-                        if(!cin.fail()){
-                            masyvod++;
-                            namudarbai.push_back(p);
-                            break;
+                        x = atoi(p.c_str());
+                        if(x!=0){
+                            if(x-floor(x)==0){
+                                masyvod++;
+                                namudarbai.push_back(x);
+                                break;
+                            }
                         }
                         else{
                             cin.clear();
