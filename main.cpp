@@ -55,8 +55,8 @@ int naujasStudentas(int& studentusk, studentai*& M){
                 int limitas = rand() % 100 + 1;
                 for(int i = 0; i<limitas;i++){
                     masyvod++;
-                         namudarbai.push_back(rand() % 10);
-                    namudarbai.push_back(rand() % 10); // egzamino balas
+                         namudarbai.push_back(rand() % 10 + 1);
+                    namudarbai.push_back(rand() % 10 + 1); // egzamino balas
                 }
             }
             else{
