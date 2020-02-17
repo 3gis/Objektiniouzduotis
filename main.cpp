@@ -32,7 +32,7 @@ int main(){
     return 0;
 }
 int naujasStudentas(int& studentusk, studentai*& M){
-    char pasirinkimas;
+    string pasirinkimas;
     int suma=0;
     int masyvod=0;
     vector<int> namudarbai;
@@ -40,7 +40,7 @@ int naujasStudentas(int& studentusk, studentai*& M){
     while(true){
     cout << "Ar norite prideti studenta? (Y/N)";
     cin >> pasirinkimas;
-    if(pasirinkimas=='y' || pasirinkimas=='Y'){
+    if(pasirinkimas=="y" || pasirinkimas=="Y"){
             studentusk++;
             while(temp->kitas){
                 temp = temp->kitas;
@@ -51,7 +51,7 @@ int naujasStudentas(int& studentusk, studentai*& M){
             cin >> temp->pavarde;
             cout << endl << "Ar norite atsitiktinai sugeneruoti rezultatus? (Y/N): ";
             cin >> pasirinkimas;
-            if(pasirinkimas == 'Y' || pasirinkimas == 'y'){
+            if(pasirinkimas == "Y" || pasirinkimas == "y"){
                 int limitas = rand() % 100 + 1;
                 for(int i = 0; i<limitas;i++){
                     masyvod++;
@@ -100,9 +100,10 @@ int naujasStudentas(int& studentusk, studentai*& M){
             }
         }
     }
-    else if (pasirinkimas == 'N' || pasirinkimas == 'n')
-            return 0;
-    else{}
+    else{
+        cout << "Rezultatu irasymas baigtas.." << endl;
+        return 0;
+    }
     break;
     }
         for (int i = 0; i<masyvod-1; i++)
