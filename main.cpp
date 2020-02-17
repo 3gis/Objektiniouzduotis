@@ -70,7 +70,7 @@ int naujasStudentas(int& studentusk, studentai*& M){
                 for(int i = 0; i<limitas;i++){
                     masyvod++;
                     if(masyvod == 1)
-                        *namudarbai = rand() % 10;
+                        *namudarbai = rand() % 10 + 1;
                     else
                         namudarbai = masyvoDidinimas(masyvod, namudarbai, rand() % 10);
                     namudarbai = masyvoDidinimas(masyvod, namudarbai, rand() % 10); // egzamino balas
@@ -78,15 +78,18 @@ int naujasStudentas(int& studentusk, studentai*& M){
             }
             else{
             while(true){
-                cout << endl << "Iveskite studento namu darbu pazymius (Iveskite ne skaiciu, kad baigtumete irasyma): " << endl;
-                int p;
+                cout << endl << "Iveskite studento namu darbu pazymius (Iveskite ne skaiciu arba 0, kad baigtumete irasyma): " << endl;
+                string p;
                 cin >> p;
-                if(!cin.fail()){
-                    masyvod++;
-                    if(masyvod == 1)
-                        *namudarbai = p;
-                    else
-                        namudarbai = masyvoDidinimas(masyvod, namudarbai, p);
+                int x = atoi(p.c_str());
+                if(x!=0){
+                    if(x-floor(x)==0){
+                        masyvod++;
+                        if(masyvod == 1)
+                            *namudarbai = p;
+                        else
+                            namudarbai = masyvoDidinimas(masyvod, namudarbai, p);
+                        }
                     }
                 else{
                     cin.clear();
@@ -95,7 +98,8 @@ int naujasStudentas(int& studentusk, studentai*& M){
                     while(true){
                         cout << "Iveskite egzamino rezultata: ";
                         cin >> p;
-                        if(!cin.fail()){
+                        x = atoi(p.c_str());
+                        if(x!=0){
                             masyvod++;
                             namudarbai = masyvoDidinimas(masyvod, namudarbai, p);
                             break;
