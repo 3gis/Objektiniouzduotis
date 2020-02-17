@@ -6,4 +6,4 @@
 ![](Sample.png)
 
 **CHANGELOG**
-- V0.1: Sukurtas sąrašą vaizduojantis UI, atsitiktinis pažymių generatorius, patys pažymiai talpinami į dinaminį masyvą.
+- V0.1: Sukurtas sąrašą vaizduojantis UI, atsitiktinis pažymių generatorius, patys pažymiai talpinami į dinaminį masyvą. Studentų sąrąšas su galutiniais rezultatais saugomas struktūroje (LinkedList);
