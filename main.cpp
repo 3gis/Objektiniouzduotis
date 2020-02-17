@@ -67,7 +67,6 @@ int naujasStudentas(int& studentusk, studentai*& M){
             cin >> pasirinkimas;
             if(pasirinkimas == 'Y' || pasirinkimas == 'y'){
                 int limitas = rand() % 100 + 1;
-                cout << limitas << endl;
                 for(int i = 0; i<limitas;i++){
                     masyvod++;
                     if(masyvod == 1)
