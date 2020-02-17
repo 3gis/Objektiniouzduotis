@@ -83,17 +83,18 @@ int naujasStudentas(int& studentusk, studentai*& M){
                 string p;
                 cin >> p;
                 double x = atof(p.c_str());
+                cout << "Priimtas kaip: " << x << endl;
                 if(x!=0){
                     if(x-floor(x)==0){
                         masyvod++;
                         if(masyvod == 1)
-                            *namudarbai = p;
+                            *namudarbai = x;
                         else
-                            namudarbai = masyvoDidinimas(masyvod, namudarbai, p);
+                            namudarbai = masyvoDidinimas(masyvod, namudarbai, x);
                     }
                     else cout << "Tik sveikieji skaiciai!" << endl;
                 }
-               
+
                 else{
                     cin.clear();
                     cin.ignore(100, '\n');
@@ -102,9 +103,11 @@ int naujasStudentas(int& studentusk, studentai*& M){
                         cout << "Iveskite egzamino rezultata: ";
                         cin >> p;
                         x = atof(p.c_str());
-                        if(x!=0){
+                        cout << "Priimtas kaip: " << x << endl;
+                        if(x-floor(x)!=0){ cout << "Tik sveikieji skaiciai!" << endl;}
+                        else if(x!=0){
                             masyvod++;
-                            namudarbai = masyvoDidinimas(masyvod, namudarbai, p);
+                            namudarbai = masyvoDidinimas(masyvod, namudarbai, x);
                             break;
                         }
                         else{
@@ -141,4 +144,3 @@ void Rikiuoti(int* M, int n){
             if(*(M+i)<*(M+j))
                 swap(*(M+i),*(M+j));
 }
-
