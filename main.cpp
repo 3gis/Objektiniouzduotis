@@ -64,12 +64,14 @@ int naujasStudentas(int& studentusk, studentai*& M){
                 cout << endl << "Iveskite studento namu darbu pazymius (Iveskite ne skaiciu arba 0, kad baigtumete irasyma): " << endl;
                 string p;
                 cin >> p;
-                int x = atoi(p.c_str());
+                double x = atof(p.c_str());
+                cout << "Priimtas kaip: " << x << endl;
                 if(x!=0){
                     if(x-floor(x)==0){
                         masyvod++;
                         namudarbai.push_back(x);
                     }
+                    else cout << "Tik sveikieji skaiciai!" << endl;
                 }
                 else{
                     cin.clear();
@@ -78,13 +80,15 @@ int naujasStudentas(int& studentusk, studentai*& M){
                     while(true){
                         cout << "Iveskite egzamino rezultata: ";
                         cin >> p;
-                        x = atoi(p.c_str());
+                        x = atof(p.c_str());
+                        cout << "Priimtas kaip: " << x << endl;
                         if(x!=0){
                             if(x-floor(x)==0){
                                 masyvod++;
                                 namudarbai.push_back(x);
                                 break;
                             }
+                            else cout << "Tik sveikieji skaiciai!" << endl;
                         }
                         else{
                             cin.clear();
