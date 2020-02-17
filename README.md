@@ -7,3 +7,4 @@
 
 **CHANGELOG**
 - V0.1: Sukurtas sąrašą vaizduojantis UI, atsitiktinis pažymių generatorius, patys pažymiai talpinami į dinaminį masyvą. Studentų sąrąšas su galutiniais rezultatais saugomas struktūroje (LinkedList);
+V0.1.1: Namų darbų pažymiai talpinami į vector konteinerį.
