@@ -1,7 +1,7 @@
 # StudentuRezultatai
 
 **Veikimas:**
-  Ši programa sukuria studentų sąrašą, kuris iš vartotojo įvestų rezultatų suskaičiuoja vidurkį ir medianą.;
+  Ši programa sukuria studentų sąrašą, kuris iš vartotojo įvestų rezultatų suskaičiuoja vidurkį arba medianą.;
   
 ![](Sample.png)
 
