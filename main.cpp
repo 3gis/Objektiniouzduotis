@@ -1,3 +1,21 @@
+#include "functions.h"
+
+int main(){
+    int studentusk=-1;
+    string pasirinkimas;
+    bool vidurkis = false;
+    while(true){
+        cout << "Skaiciuoti vidurki? (jei ne, bus skaiciuojama mediana) (Y/N)";
+        cin >> pasirinkimas;
+        if(pasirinkimas=="y" || pasirinkimas=="Y"){
+            vidurkis = true;
+            cout << "Bus skaiciuojamas vidurkis..\n";
+            break;
+        }
+        else if (pasirinkimas=="n" || pasirinkimas=="N"){
+            cout << "Bus skaiciuojama mediana..\n";
+            break;
+=======
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -99,22 +117,9 @@ int naujasStudentas(int& studentusk, studentai*& M){
                 }
             }
         }
-    }
-    else if (pasirinkimas == 'N' || pasirinkimas == 'n')
-            return 0;
-    else{}
-    break;
-    }
-        for (int i = 0; i<masyvod-1; i++)
-            suma+=namudarbai[i];
-        temp->galutinisVid = (double)suma/(masyvod-1) * 0.4 + 0.6 * namudarbai.back();
-        temp->kitas = new studentai();
-        sort(namudarbai.begin(), namudarbai.end());
-        if(masyvod%2==0)
-            temp->galutinisMed = ((namudarbai[(masyvod/2)-2]) + (namudarbai[(masyvod/2)]))/2.0;
-        else
-            temp->galutinisMed = namudarbai[(masyvod/2)];
-        cout << "-----------------------------------------" << endl;
-        naujasStudentas(studentusk,M);
+    vector<studentai> studentas;
+    naujasStudentas(studentusk, studentas,vidurkis);
+    sort(studentas.begin(), studentas.end(), lyginimas);
+    spausdinti(studentas,vidurkis);
+    return 0;
 }
-
