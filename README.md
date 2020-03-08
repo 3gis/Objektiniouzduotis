@@ -3,7 +3,10 @@
 **Veikimas:**
   Ši programa sukuria studentų sąrašą, kuris iš vartotojo įvestų rezultatų suskaičiuoja vidurkį arba medianą.;
   
-![](Sample1.png)
+![](Sample2.png)
+
+
+![](Sample3.png)
 
 **CHANGELOG**
 - V0.1: Sukurtas sąrašą vaizduojantis UI, atsitiktinis pažymių generatorius, patys pažymiai talpinami į dinaminį masyvą. Studentų sąrąšas su galutiniais rezultatais saugomas struktūroje (LinkedList);
