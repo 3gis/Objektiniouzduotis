@@ -23,3 +23,5 @@
   Surūšiuotus studentai išvedami į du naujus failus "kietekai.txt" ir "vargsiukai.txt";
   Visos operacijos išmatuojamos, kiek užtrunka ir pateikiamos statistikos konsolėje.
   
+  ![](Sample4.png)
+  
