@@ -13,5 +13,3 @@
 - V0.2: Naudojama `using` vietoje `using namespace`, sukurta sąrašo spausdinimo funkcija, kuri spausdina surikiuotą pagal pavardę sąrašą į failą "kursiokai.txt"; Yra pasirinkimas rezultatus skaityti iš failo, kuris failo rezultatus perkelia į stringstream ir iš ten apdoroja duomenis. Idėtas pasirinkimas, ar norite skaičiuoti vidurkį, ar medianą.
 
 - V0.3: Sukurtas header ir cpp failai skirti funkcijoms talpinti. Panaudotas minimaliai "Exception handling".
-=======
-- V0.1.1: Namų darbų pažymiai talpinami į vector konteinerį. Kadangi praeitoje versijoje buvo naudojami dinaminiai masyvai, su vektoriais funkcionalumas pagreitėjo, nes masyvo praplatinimui nebereikia ištrinti seno ir kurti naujo masyvo. Vector tipo konteineris automatiškai prasiplečia įdėjus į jį naująjį narį.
