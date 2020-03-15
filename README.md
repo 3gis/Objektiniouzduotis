@@ -23,7 +23,7 @@
   Surūšiuotus studentai išvedami į du naujus failus "kietekai.txt" ir "vargsiukai.txt"  
   Visos operacijos išmatuojamos, kiek užtrunka ir pateikiamos statistikos konsolėje.  
   
-  ![](Sample4.png)
+  ![](Sample4.png)  
  -V0.5: Išbandyti Vector, Deque ir List STL konteinerių veikimo laikai:
   ![](laikailentele2.png)
 - V0.5.1: Ištestuojamas Vector konteineris, kompiuterio išnaudojami resursai:  
