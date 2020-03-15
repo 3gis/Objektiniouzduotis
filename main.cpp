@@ -21,7 +21,7 @@ int main(){
                     break;
                     }
                 }
-            vector<studentai> studentas;
+            deque<studentai> studentas;
             naujasStudentas(studentusk, studentas,vidurkis);
             sort(studentas.begin(), studentas.end(), lyginimas);
             spausdinti(studentas,vidurkis, "kursiokai.txt");
@@ -30,29 +30,17 @@ int main(){
             int k = 5;
             cout << "Kuriami atsitiktiniai failai... \n";
             Generuotifailus("Pirmas.txt", k);
-            vector <studentai> kietekai;
-            vector <studentai> vargsiukai;
-            vector <studentai> studentas;
+            list <studentai> kietekai;
+            list <studentai> vargsiukai;
+            list <studentai> studentas;
             TestNuskaitymas("Pirmas.txt", k, studentas);
             cout << "Sarasas rikiuojamas su funkcija sort.. \n";
-             auto start = std::chrono::high_resolution_clock::now();
-            sort(studentas.begin(), studentas.end(),testLyginimas);
-            auto end = std::chrono::high_resolution_clock::now();
-            std::chrono::duration<double> diff = end-start;
-            cout << "Rikiavimas uztruko: " << diff.count() << "\n";
+            studentas.sort(testLyginimas);
             cout << "Sarasas rusiuojamas i vargsiukus ir kietekus \n";
             TestRusiavimas(k,studentas, kietekai, vargsiukai);
             cout << "Spausdinami sarasai i atskirus failus.. \n";
-            start = std::chrono::high_resolution_clock::now();
             spausdinti(kietekai,true,"kietekai.txt");
-            end = std::chrono::high_resolution_clock::now();
-            diff = end-start;
-            cout << "Rikiavimas uztruko: " << diff.count() << "\n";
-            start = std::chrono::high_resolution_clock::now();
             spausdinti(vargsiukai,true, "vargsiukai.txt");
-            end = std::chrono::high_resolution_clock::now();
-            diff = end-start;
-            cout << "Rikiavimas uztruko: " << diff.count() << "\n";
         }
     }
     return 0;
