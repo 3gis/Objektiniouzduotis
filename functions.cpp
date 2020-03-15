@@ -1,11 +1,11 @@
 #include "functions.h"
 
-int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis){
+int naujasStudentas(int& studentusk, deque<studentai>& M, bool& vidurkis){
     string pasirinkimas;
     string p;
     float suma=0;
     int masyvod=0;
-    vector<int> namudarbai;
+    deque<int> namudarbai;
     while(true){
         cout << "Ar norite skaityti is failo? (Y/N)";
         cin >> pasirinkimas;
@@ -150,7 +150,7 @@ int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis){
         namudarbai.clear();
         naujasStudentas(studentusk,M,vidurkis);
 }
-double mediana(vector<int>M, int masyvod){
+double mediana(deque<int>M, int masyvod){
     return masyvod%2==0 ? (double)(((M[(masyvod/2)-2]) + (M[(masyvod/2)]))/2.0) : M[(masyvod/2)];
 }
 bool lyginimas(const studentai& a, const studentai& b){
@@ -159,7 +159,7 @@ bool lyginimas(const studentai& a, const studentai& b){
 bool testLyginimas(const studentai& a, const studentai& b){
     return a.galutinisVid > b.galutinisVid;
 }
-void spausdinti(vector<studentai>& studentas, bool vidurkis, string pavadinimas){
+void spausdinti(deque<studentai>& studentas, bool vidurkis, string pavadinimas){
     char buffer[80];
     ofstream ff (pavadinimas);
     if(vidurkis==true)
@@ -184,26 +184,19 @@ void spausdinti(vector<studentai>& studentas, bool vidurkis, string pavadinimas)
     cout << "Rezultatai irasyti i "<< pavadinimas << " faila \n";
 }
 void Generuotifailus(string a, int& b){
-    auto start = std::chrono::high_resolution_clock::now();
     ofstream ff(a);
     srand(time(NULL));
     long int limitai[5]={1000,10000,100000,1000000,10000000};
     long int limitas = limitai[rand() % 5];
     cout << "Kuriamas " << limitas << " dydzio sarasas faile " << a << "\n";
-        ff << "Vardas Pavarde ND1 ND2 ND3 ND4 ND5 Egz. \n";
+        ff << "Vardas Pavarde Egz. \n";
     for(long int i = 0; i<limitas;i++){
         ff << "Vardas" << i << " Pavarde" << i << " ";
-        for(int j = 0; j<=5;j++){
-            ff << rand() % 10 + 1 << " ";
-        }
+        ff << rand() % 10 + 1;
         ff << "\n";
-
     }
 b--;
 ff.close();
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> diff = end-start;
-    cout << "Irasymas uztruko: " << diff.count() << "\n";
     if(b==4){
         Generuotifailus("Antras.txt", b);
     }
@@ -217,44 +210,29 @@ ff.close();
         Generuotifailus("Penktas.txt", b);
     }
 }
-void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M){
+void TestNuskaitymas(string pasirinkimas, int& b, deque <studentai>& M){
     cout << "Skaitomi vardai is failo " << pasirinkimas << "\n";
     auto start = std::chrono::high_resolution_clock::now();
     ifstream fd;
-    vector <float> namudarbai;
+    //deque <float> namudarbai;
     fd.open(pasirinkimas);
     int studentusk=M.size()-1;
-    float suma = 0;
     string p;
         if(fd.is_open()){
             std::stringstream ss;
             ss << fd.rdbuf();
             fd.close();
-            int stulpeliai = 0;
-            while(ss >> pasirinkimas){
-                if(pasirinkimas=="Egz." || pasirinkimas=="Egzaminas"){
-                    stulpeliai++;
-                    break;
-                }
-                else
-                    stulpeliai++;
-            }
             while(!ss.eof()){
+            //    if(M.size()>=3000000)
+              //      cout << M.size() << endl;
                 studentusk++;
                 M.push_back(studentai());
                 ss >> M[studentusk].vardas >> M[studentusk].pavarde;
-                for(int i = 0; i<stulpeliai-3;i++){
-                    ss >> pasirinkimas;
-                    suma+=atof(pasirinkimas.c_str());
-                    namudarbai.push_back(atof(pasirinkimas.c_str()));
-                }
                 ss >> p;
-                namudarbai.push_back(atof(p.c_str()));
-                     M[studentusk].galutinisVid=((double)(suma/(stulpeliai-3)) * 0.40 + 0.60 * atof(p.c_str()));
-                suma = 0;
-                namudarbai.clear();
-        }
+                M[studentusk].galutinisVid=atof(p.c_str());
+            }
     }
+
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end-start;
     cout << "Skaitymas uztruko: " << diff.count() << "\n";
@@ -272,7 +250,7 @@ void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M){
         TestNuskaitymas("Penktas.txt", b, M);
     }
 }
-void TestRusiavimas(int& k,vector <studentai>& studentas, vector<studentai>& kietekai, vector<studentai>& vargsiukai){
+void TestRusiavimas(int& k,deque <studentai>& studentas, deque<studentai>& kietekai, deque<studentai>& vargsiukai){
     auto start = std::chrono::high_resolution_clock::now();
     for(auto i : studentas){
         if(i.galutinisVid >= 5)
@@ -282,5 +260,5 @@ void TestRusiavimas(int& k,vector <studentai>& studentas, vector<studentai>& kie
     studentas.clear();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end-start;
-    cout << "Skaitymas uztruko: " << diff.count() << "\n";
+    cout << "Rusiavimas uztruko: " << diff.count() << "\n";
 }
