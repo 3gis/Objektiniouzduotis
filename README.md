@@ -32,3 +32,6 @@
 - V0.5.2: Ištestuojamas Deque konteineris, kompiuterio išnaudojami resursai:  
   ![](Dequeusage.png)
   ![](Dequeusage2.png)
+- V0.5.3: Ištestuojamas List konteineris, kompiuterio išnaudojami resursai:  
+  ![](listusage.png)  
+  ![](listusage2.png)
