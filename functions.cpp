@@ -1,11 +1,11 @@
 #include "functions.h"
 
-int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis){
+int naujasStudentas(int& studentusk, deque<studentai>& M, bool& vidurkis){
     string pasirinkimas;
     string p;
     float suma=0;
     int masyvod=0;
-    vector<int> namudarbai;
+    deque<int> namudarbai;
     while(true){
         cout << "Ar norite skaityti is failo? (Y/N)";
         cin >> pasirinkimas;
@@ -150,15 +150,18 @@ int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis){
         namudarbai.clear();
         naujasStudentas(studentusk,M,vidurkis);
 }
-double mediana(vector<int>M, int masyvod){
+double mediana(deque<int>M, int masyvod){
     return masyvod%2==0 ? (double)(((M[(masyvod/2)-2]) + (M[(masyvod/2)]))/2.0) : M[(masyvod/2)];
 }
 bool lyginimas(const studentai& a, const studentai& b){
     return a.pavarde < b.pavarde;
 }
-void spausdinti(vector<studentai> studentas, bool vidurkis){
+bool testLyginimas(const studentai& a, const studentai& b){
+    return a.galutinisVid > b.galutinisVid;
+}
+void spausdinti(deque<studentai>& studentas, bool vidurkis, string pavadinimas){
     char buffer[80];
-    ofstream ff ("kursiokai.txt");
+    ofstream ff (pavadinimas);
     if(vidurkis==true)
         sprintf(buffer, "%-20s %-20s %-20s \n", "Pavarde", "Vardas", "Galutinis (Vid.)");
     else
@@ -178,5 +181,110 @@ void spausdinti(vector<studentai> studentas, bool vidurkis){
             ff << buffer;
         }
     }
-    cout << "Rezultatai irasyti i kursiokai.txt faila \n";
+    cout << "Rezultatai irasyti i "<< pavadinimas << " faila \n";
+}
+void spausdinti(list<studentai>& studentas, bool vidurkis, string pavadinimas){
+    char buffer[80];
+    ofstream ff (pavadinimas);
+    if(vidurkis==true)
+        sprintf(buffer, "%-20s %-20s %-20s \n", "Pavarde", "Vardas", "Galutinis (Vid.)");
+    else
+        sprintf(buffer, "%-20s %-20s %-20s \n", "Pavarde", "Vardas", "Galutinis (Med.)");
+    ff << buffer;
+    for(int i = 0; i<80;i++,ff << "-");
+    ff << "\n";
+    if(vidurkis==true){
+        for(list<studentai>::iterator it = studentas.begin(); it != studentas.end(); it++) {
+                sprintf(buffer,"%-20s %-20s %-20.2lf \n", it->pavarde.c_str(), it->vardas.c_str(), it->galutinisVid);
+            ff << buffer;
+        }
+    }
+    else{
+        for(list<studentai>::iterator it = studentas.begin(); it != studentas.end(); it++) {
+                sprintf(buffer,"%-20s %-20s %-20.2lf \n", it->pavarde.c_str(), it->vardas.c_str(), it->galutinisMed);
+            ff << buffer;
+        }
+    }
+    cout << "Rezultatai irasyti i "<< pavadinimas << " faila \n";
+}
+void Generuotifailus(string a, int& b){
+    ofstream ff(a);
+    srand(time(NULL));
+    long int limitai[5]={1000,10000,100000,1000000,10000000};
+    long int limitas = limitai[rand() % 5];
+    cout << "Kuriamas " << limitas << " dydzio sarasas faile " << a << "\n";
+        ff << "Vardas Pavarde Egz. \n";
+    for(long int i = 0; i<limitas;i++){
+        ff << "Vardas" << i << " Pavarde" << i << " ";
+        ff << rand() % 10 + 1;
+        ff << "\n";
+    }
+b--;
+ff.close();
+    if(b==4){
+        Generuotifailus("Antras.txt", b);
+    }
+    else if (b==3){
+        Generuotifailus("Trecias.txt", b);
+    }
+    else if (b==2){
+        Generuotifailus("Ketvirtas.txt", b);
+    }
+    else if (b==1){
+        Generuotifailus("Penktas.txt", b);
+    }
+}
+void TestNuskaitymas(string pasirinkimas, int& b, list <studentai>& M){
+    studentai L;
+    cout << "Skaitomi vardai is failo " << pasirinkimas << "\n";
+    auto start = std::chrono::high_resolution_clock::now();
+    ifstream fd;
+    //deque <float> namudarbai;
+    fd.open(pasirinkimas);
+    int studentusk=M.size()-1;
+    string p;
+        if(fd.is_open()){
+            std::stringstream ss;
+            ss << fd.rdbuf();
+            fd.close();
+            while(!ss.eof()){
+            //    if(M.size()>=3000000)
+              //      cout << M.size() << endl;
+                studentusk++;
+
+                ss >> L.vardas >> L.pavarde;
+                ss >> p;
+                L.galutinisVid=atof(p.c_str());
+                M.push_back(L);
+            }
+    }
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end-start;
+    cout << "Skaitymas uztruko: " << diff.count() << "\n";
+    b++;
+    if(b==1){
+        TestNuskaitymas("Antras.txt", b, M);
+    }
+    else if (b==2){
+        TestNuskaitymas("Trecias.txt", b, M);
+    }
+    else if (b==3){
+        TestNuskaitymas("Ketvirtas.txt", b, M);
+    }
+    else if (b==4){
+        TestNuskaitymas("Penktas.txt", b, M);
+    }
+}
+void TestRusiavimas(int& k,list <studentai>& studentas, list<studentai>& kietekai, list<studentai>& vargsiukai){
+    auto start = std::chrono::high_resolution_clock::now();
+    for(auto i : studentas){
+        if(i.galutinisVid >= 5)
+            kietekai.push_back(i);
+        else vargsiukai.push_back(i);
+    }
+    studentas.clear();
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> diff = end-start;
+    cout << "Rusiavimas uztruko: " << diff.count() << "\n";
 }
