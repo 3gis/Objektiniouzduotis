@@ -11,7 +11,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <chrono>
-
+#include <unistd.h>
 using std::cout;
 using std::endl;
 using std::cin;
