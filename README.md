@@ -30,5 +30,5 @@
   ![](vectorusage1.png)  
   ![](vectorusage2.png)  
 - V0.5.2: Ištestuojamas Deque konteineris, kompiuterio išnaudojami resursai:
-  ![](dequeusage.png)
-  ![](dequeusage2.png)
+  ![](Dequeusage.png)
+  ![](Dequeusage2.png)
