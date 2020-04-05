@@ -1,8 +1,7 @@
 #include "functions.h"
 
-
-int main(){
-    int studentusk=-1;
+int main() {
+    int studentusk = -1;
     string pasirinkimas;
     bool vidurkis = false;
     while (true) {
@@ -21,8 +20,9 @@ int main(){
                     cout << "Bus skaiciuojama mediana..\n";
                     break;
                 }
+            }
             deque<studentai> studentas;
-            naujasStudentas(studentusk, studentas,vidurkis);> V0.5.2-DequeTest
+            naujasStudentas(studentusk, studentas, vidurkis);
             sort(studentas.begin(), studentas.end(), lyginimas);
             ofstream ff("kursiokai.txt");
             spausdinti(studentas, vidurkis, ff);
@@ -31,9 +31,9 @@ int main(){
             int k;
 
 
-            vector <studentai> kietekai;
-            vector <studentai> vargsiukai;
-            vector <studentai> studentas;
+            deque<studentai> kietekai;
+            deque<studentai> vargsiukai;
+            deque<studentai> studentas;
             cout << "Kuriami failai..\n ";
             ofstream fk("kietekai.txt");
             ofstream fv("vargsiukai.txt");
@@ -56,24 +56,6 @@ int main(){
             }
             fk.close();
             fv.close();
-        else if(pasirinkimas=="y" || pasirinkimas=="Y"){
-            int k = 5;
-            cout << "Kuriami atsitiktiniai failai... \n";
-            Generuotifailus("Pirmas.txt", k);
-            deque <studentai> kietekai;
-            deque <studentai> vargsiukai;
-            deque <studentai> studentas;
-            TestNuskaitymas("Pirmas.txt", k, studentas);
-            cout << "Sarasas rikiuojamas su funkcija sort.. \n";
-            sort(studentas.begin(), studentas.end(),testLyginimas);
-            cout << "Sarasas rusiuojamas i vargsiukus ir kietekus \n";
-            TestRusiavimas(k,studentas, kietekai, vargsiukai);
-            cout << "Spausdinami sarasai i atskirus failus.. \n";
-            spausdinti(kietekai,true,"kietekai.txt");
-            spausdinti(vargsiukai,true, "vargsiukai.txt");
-            studentas.clear();
-            kietekai.clear();
-            vargsiukai.clear();
         }
     }
     return 0;
