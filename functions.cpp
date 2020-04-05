@@ -183,23 +183,18 @@ void spausdinti(vector<studentai>& studentas, bool vidurkis, ofstream& ff){
         }
     }
 }
-void Generuotifailus(string a, int& b){
-    auto start = std::chrono::high_resolution_clock::now();
+void Generuotifailus(string a, int& b){    auto start = std::chrono::high_resolution_clock::now();
     ofstream ff(a);
     srand(time(NULL));
     long int limitai[5]={1000,10000,100000,1000000,10000000};
-    //long int limitas = limitai[rand() % 5];
     cout << "Kuriamas " << limitai[b] << " dydzio sarasas faile " << a << "\n";
-        ff << "Vardas Pavarde ND1 ND2 ND3 ND4 ND5 Egz. \n";
+    ff << "Vardas Pavarde Egz. \n";
     for(long int i = 0; i<limitai[b];i++){
         ff << "Vardas" << i << " Pavarde" << i << " ";
-        for(int j = 0; j<=5;j++){
-            ff << rand() % 10 + 1 << " ";
-        }
+        ff << rand() % 10 + 1;
         ff << "\n";
-
     }
-ff.close();
+    ff.close();
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end-start;
     cout << "=== Irasymas uztruko: " << diff.count() << "\n";
@@ -208,7 +203,6 @@ void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M){
     cout << "Skaitomi vardai is failo " << pasirinkimas << "\n";
     auto start = std::chrono::high_resolution_clock::now();
     ifstream fd;
-    vector <float> namudarbai;
     fd.open(pasirinkimas);
         string p;
         if(fd.is_open()){
@@ -221,20 +215,11 @@ void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M){
             }
             while(!ss.eof()){
                 studentai k;
-
                 ss >> k.vardas >> k.pavarde >> p;
                 k.galutinisVid = atof(p.c_str());
-                /*
-                for(int i = 0; i<stulpeliai-3;i++){
-                    ss >> pasirinkimas;
-
-                   // suma+=atof(pasirinkimas.c_str());
-                   //namudarbai.push_back(atof(pasirinkimas.c_str()));
-                }
-                */
                 M.push_back(k);
+            }
         }
-    }
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> diff = end-start;
     cout << "=== Skaitymas uztruko: " << diff.count() << "\n";
