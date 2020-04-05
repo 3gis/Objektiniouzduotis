@@ -38,7 +38,7 @@
   ![](strategija.png)  
   Iš nuotraukos matome, jog ši strategija yra dvigubai greitesnė už praeitą strategiją vektoriuose ir deque'uose, tačiau beveik nepasikeitė su list .  
 **NAUDOJIMOSI INSTRUKCIJA**
-- 1:  
-- 2:  
-- 3:  
+- 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
+- 2: Atsisiuskite bent vieną iš jų.
+- 3: Kad paleistumėte 
 - 4:  
