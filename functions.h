@@ -22,7 +22,8 @@ using std::ifstream;
 using std::ofstream;
 using std::deque;
 
-struct studentai {
+class studentai {
+    public:
     string vardas;
     string pavarde;
     double galutinisVid;

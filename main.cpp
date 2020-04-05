@@ -1,31 +1,61 @@
 #include "functions.h"
 
+
 int main(){
     int studentusk=-1;
     string pasirinkimas;
     bool vidurkis = false;
-    while(true){
+    while (true) {
         cout << " Ar norite testuoti greicius? (Y/N) \n";
         cin >> pasirinkimas;
-            if (pasirinkimas=="n" || pasirinkimas=="N"){
-            while(true){
+        if (pasirinkimas == "n" || pasirinkimas == "N") {
+            while (true) {
                 cout << "Skaiciuoti vidurki? (jei ne, bus skaiciuojama mediana) (Y/N)";
                 cin >> pasirinkimas;
-                if(pasirinkimas=="y" || pasirinkimas=="Y"){
+                if (pasirinkimas == "y" || pasirinkimas == "Y") {
                     vidurkis = true;
                     cout << "Bus skaiciuojamas vidurkis..\n";
                     break;
                 }
-                else if (pasirinkimas=="n" || pasirinkimas=="N"){
+                else if (pasirinkimas == "n" || pasirinkimas == "N") {
                     cout << "Bus skaiciuojama mediana..\n";
                     break;
-                    }
                 }
             deque<studentai> studentas;
-            naujasStudentas(studentusk, studentas,vidurkis);
+            naujasStudentas(studentusk, studentas,vidurkis);> V0.5.2-DequeTest
             sort(studentas.begin(), studentas.end(), lyginimas);
-            spausdinti(studentas,vidurkis, "kursiokai.txt");
+            ofstream ff("kursiokai.txt");
+            spausdinti(studentas, vidurkis, ff);
         }
+        else if (pasirinkimas == "y" || pasirinkimas == "Y") {
+            int k;
+
+
+            vector <studentai> kietekai;
+            vector <studentai> vargsiukai;
+            vector <studentai> studentas;
+            cout << "Kuriami failai..\n ";
+            ofstream fk("kietekai.txt");
+            ofstream fv("vargsiukai.txt");
+            string failuPavadinimai[5] = { "Pirmas.txt","Antras.txt","Trecias.txt","Ketvirtas.txt","Penktas.txt" };
+            for (k = 0; k < 5; k++) {
+
+                Generuotifailus(failuPavadinimai[k], k);
+                TestNuskaitymas(failuPavadinimai[k], k, studentas);
+                cout << "Sarasas rikiuojamas su funkcija sort.. \n";
+                sort(studentas.begin(), studentas.end(), testLyginimas);
+                cout << "Sarasas rusiuojamas i vargsiukus ir kietekus \n";
+                TestRusiavimas(k, studentas, kietekai, vargsiukai);
+                cout << "Spausdinami sarasai i atskirus failus.. \n";
+                spausdinti(kietekai, true, fk);
+                spausdinti(vargsiukai, true, fk);
+                studentas.clear();
+                vargsiukai.clear();
+                kietekai.clear();
+                cout << "----------------------------\n";
+            }
+            fk.close();
+            fv.close();
         else if(pasirinkimas=="y" || pasirinkimas=="Y"){
             int k = 5;
             cout << "Kuriami atsitiktiniai failai... \n";
