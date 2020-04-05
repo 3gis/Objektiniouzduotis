@@ -36,3 +36,4 @@
 - V1.0: Panaudojama kita rusiavimo strategija - panaudojant tik vieną naują konteinerį "Vargšiukams"  
   Palyginimas su praeita strategija (sparta):  
   ![](strategija.png)  
+  Iš nuotraukos matome, jog ši strategija yra dvigubai greitesnė už praeitą strategiją vektoriuose ir deque'uose, tačiau beveik nepasikeitė su list .
