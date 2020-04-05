@@ -28,3 +28,8 @@
   ![](palyginimas.png)
 - V0.5.1: Ištestuojamas Vector konteineris, kompiuterio išnaudojami resursai:  
   ![](Cpuusage.png)  
+- V0.5.2: Ištestuojamas List konteineris, kompiuterio išnaudojami resursai:  
+  ![](Listousage.png)  
+- V0.5.3: Ištestuojamas Deque konteineris, kompiuterio išnaudojami resursai:  
+  ![](Deque-.png) 
+ 
