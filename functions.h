@@ -20,7 +20,8 @@ using std::vector;
 using std::ifstream;
 using std::ofstream;
 
-struct studentai {
+class studentai {
+    public:
     string vardas;
     string pavarde;
     double galutinisVid;
@@ -31,7 +32,7 @@ int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis);
 double mediana(vector<int>M, int masyvod);
 bool lyginimas(const studentai& a, const studentai& b);
 bool testLyginimas(const studentai& a, const studentai& b);
-void spausdinti(vector<studentai>& studentas, bool vidurkis, string pavadinimas);
+void spausdinti(vector<studentai>& studentas, bool vidurkis, ofstream& ff);
 void Generuotifailus(string a, int& b);
 void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M);
 void TestRusiavimas(int& k,vector <studentai>& studentas, vector<studentai>& kietekai, vector<studentai>& vargsiukai);
