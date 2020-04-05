@@ -24,6 +24,7 @@
   Visos operacijos išmatuojamos, kiek užtrunka ir pateikiamos statistikos konsolėje.  
   
   ![](Sample4.png)  
+
  -V0.5: Išbandyti Vector, Deque ir List STL konteinerių veikimo įrašymo, nuskaitymo ir rūšiavimo į 2 kategorijas laikai:  
   ![](palyginimas.png)
 - V0.5.1: Ištestuojamas Vector konteineris, kompiuterio išnaudojami resursai:  
@@ -32,4 +33,4 @@
   ![](listousage.png)  
 - V0.5.3: Ištestuojamas Deque konteineris, kompiuterio išnaudojami resursai:  
   ![](deque-.png) 
- 
+

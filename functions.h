@@ -11,6 +11,7 @@
 #include <sstream>
 #include <stdio.h>
 #include <chrono>
+#include <deque>
 
 using std::cout;
 using std::endl;
@@ -19,6 +20,7 @@ using std::string;
 using std::vector;
 using std::ifstream;
 using std::ofstream;
+using std::deque;
 
 class studentai {
     public:
@@ -28,13 +30,13 @@ class studentai {
     double galutinisMed;
 };
 
-int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis);
-double mediana(vector<int>M, int masyvod);
+int naujasStudentas(int& studentusk, deque<studentai>& M, bool& vidurkis);
+double mediana(deque<int>M, int masyvod);
 bool lyginimas(const studentai& a, const studentai& b);
 bool testLyginimas(const studentai& a, const studentai& b);
-void spausdinti(vector<studentai>& studentas, bool vidurkis, ofstream& ff);
+void spausdinti(deque<studentai>& studentas, bool vidurkis, string pavadinimas);
 void Generuotifailus(string a, int& b);
-void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M);
-void TestRusiavimas(int& k,vector <studentai>& studentas, vector<studentai>& kietekai, vector<studentai>& vargsiukai);
+void TestNuskaitymas(string pasirinkimas, int& b, deque <studentai>& M);
+void TestRusiavimas(int& k,deque <studentai>& studentas, deque<studentai>& kietekai, deque<studentai>& vargsiukai);
 
 #endif // FUNCTIONS_H_INCLUDED
