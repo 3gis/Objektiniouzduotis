@@ -37,3 +37,8 @@
   Palyginimas su praeita strategija (sparta):  
   ![](strategija.png)  
   Iš nuotraukos matome, jog ši strategija yra dvigubai greitesnė už praeitą strategiją vektoriuose ir deque'uose, tačiau beveik nepasikeitė su list .
+**NAUDOJIMOSI INSTRUKCIJA**
+- 1:  
+- 2:  
+- 3:  
+- 4:  
