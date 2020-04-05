@@ -22,6 +22,6 @@
   Studentai, kurių galutinis balas >= 5.0 "kietekiai"  
   Surūšiuotus studentai išvedami į du naujus failus "kietekai.txt" ir "vargsiukai.txt"  
   Visos operacijos išmatuojamos, kiek užtrunka ir pateikiamos statistikos konsolėje.  
-- V0.4.1 Pataisyta verisja.  
+- V0.4.1 Pataisyta versija.  
   ![](Sample4.png)
   
