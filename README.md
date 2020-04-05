@@ -33,3 +33,6 @@
   ![](deque-.png)  
 - V0.5.3: Ištestuojamas List konteineris, kompiuterio išnaudojami resursai:  
   ![](listousage.png)  
+- V1.0: Panaudojama kita rusiavimo strategija - panaudojant tik vieną naują konteinerį "Vargšiukams"  
+  Palyginimas su praeita strategija (sparta):  
+  ![](strategija.png)  
