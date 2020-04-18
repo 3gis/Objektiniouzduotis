@@ -17,21 +17,29 @@
 
 - V0.3: Sukurtas header ir cpp failai skirti funkcijoms talpinti. Panaudotas minimaliai "Exception handling".
 
-- V0.4: Sukurtas debugginimo funkcijos, kurios: sukuria penkis atsitiktinius studentų sąrašų failus, sudarytus iš: 1000, 10000, 100000, 1000000, 10000000 įrašų.Sūrušiuoja studentus į dvi kategorijas:  
+- V0.4: Sukurtas debugginimo funkcijos, kurios: sukuria penkis studentų sąrašų failus, sudarytus iš: 1000, 10000, 100000, 1000000, 10000000 įrašų.Sūrušiuoja studentus į dvi kategorijas:  
   Studentai, kurių galutinis balas < 5.0 “vargšiukai”  
   Studentai, kurių galutinis balas >= 5.0 "kietekiai"  
   Surūšiuotus studentai išvedami į du naujus failus "kietekai.txt" ir "vargsiukai.txt"  
   Visos operacijos išmatuojamos, kiek užtrunka ir pateikiamos statistikos konsolėje.  
   
   ![](Sample4.png)  
- -V0.5: Išbandyti Vector, Deque ir List STL konteinerių veikimo nuskaitymo ir rūšiavimo į 2 kategorijas laikai:  
-  ![](laikailentele2.png)
-- V0.5.1: Ištestuojamas Vector konteineris, kompiuterio išnaudojami resursai:   
-  ![](vectorusage1.png)  
-  ![](vectorusage2.png)  
+
+ -V0.5: Išbandyti Vector, Deque ir List STL konteinerių veikimo įrašymo, nuskaitymo ir rūšiavimo į 2 kategorijas laikai:  
+  ![](palyginimas.png)
+- V0.5.1: Ištestuojamas Vector konteineris, kompiuterio išnaudojami resursai:  
+  ![](Cpuusage.png)  
 - V0.5.2: Ištestuojamas Deque konteineris, kompiuterio išnaudojami resursai:  
-  ![](Dequeusage.png)
-  ![](Dequeusage2.png)
+  ![](deque-.png)  
 - V0.5.3: Ištestuojamas List konteineris, kompiuterio išnaudojami resursai:  
-  ![](listusage.png)  
-  ![](listusage2.png)
+  ![](listousage.png)  
+- V1.0: Panaudojama kita rusiavimo strategija - panaudojant tik vieną naują konteinerį "Vargšiukams"  
+  Palyginimas su praeita strategija (sparta):  
+  ![](strategija.png)  
+  Iš nuotraukos matome, jog ši strategija yra dvigubai greitesnė už praeitą strategiją vektoriuose ir deque'uose, tačiau beveik nepasikeitė su list .  
+**NAUDOJIMOSI INSTRUKCIJA**
+- 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
+- 2: Atsisiuskite bent vieną iš jų.
+- 3: *UNIX SISTEMA* terminale įėję į programos aplankalą parašykite `make`
+- 4: Atidarykite sukurtą makefile failo aplankale  
+- 5: Baigus naudoti parasykite `make clean`
