@@ -25,7 +25,7 @@
   
   ![](Sample4.png)  
 
- -V0.5: Išbandyti Vector, Deque ir List STL konteinerių veikimo įrašymo, nuskaitymo ir rūšiavimo į 2 kategorijas laikai:  
+- V0.5: Išbandyti Vector, Deque ir List STL konteinerių veikimo įrašymo, nuskaitymo ir rūšiavimo į 2 kategorijas laikai:  
   ![](palyginimas.png)
 - V0.5.1: Ištestuojamas Vector konteineris, kompiuterio išnaudojami resursai:  
   ![](Cpuusage.png)  
@@ -37,7 +37,14 @@
   Palyginimas su praeita strategija (sparta):  
   ![](strategija.png)  
   Iš nuotraukos matome, jog ši strategija yra dvigubai greitesnė už praeitą strategiją vektoriuose ir deque'uose, tačiau beveik nepasikeitė su list .  
-**NAUDOJIMOSI INSTRUKCIJA**
+- V1.1: Pilnai pereita prie class tipo, ištestuojama sparta:  
+  ![](ClassLyginimas.png)  
+  Išvados: Veikimas palėtėjo, tačiau nebegalima prieiti laisvai prie privačių klasės kintamųjų, todėl pagerėjo saugumas.
+  Ištestuojami 01 02 03 flag'ai Vector konteineryje:  
+  ![](010203testai.png)  
+  Išvados: 01 flag labiausiai paspartina įrašymą, 02 nuskaitymą, 03 rušiavimą.
+ 
+# NAUDOJIMOSI INSTRUKCIJA**
 - 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
 - 2: Atsisiuskite bent vieną iš jų.
 - 3: *UNIX SISTEMA* terminale įėję į programos aplankalą parašykite `make`
