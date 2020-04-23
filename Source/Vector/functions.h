@@ -21,16 +21,26 @@ using std::ifstream;
 using std::ofstream;
 
 class studentai {
-public:
+private:
     string vardas;
     string pavarde;
     double galutinisVid;
     double galutinisMed;
+public:
+    inline string getVardas() const { return vardas;}
+    inline string getPavarde() const {return pavarde;}
+    inline double getGalutinisVid() const {return galutinisVid;}
+    inline double getGalutinisMed() const {return galutinisMed;}
+    inline void setVardas(string x) {this-> vardas = x;}
+    inline void setPavarde(string x) {this-> pavarde = x;}
+    inline void setGalutinisVid(double x){ this->galutinisVid = x;}
+    inline void setGalutinisMed(double x){ this->galutinisMed = x;}
+
 };
 int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis);
 double mediana(vector<int>M, int masyvod);
-bool lyginimas(const studentai& a, const studentai& b);
-bool testLyginimas(const studentai& a, const studentai& b);
+bool lyginimas( studentai& a, studentai& b);
+bool testLyginimas( studentai& a,  studentai& b);
 void spausdinti(vector<studentai>& studentas, bool vidurkis, ofstream& ff);
 void Generuotifailus(string a, int& b);
 void TestNuskaitymas(string pasirinkimas, int& b, vector <studentai>& M);
