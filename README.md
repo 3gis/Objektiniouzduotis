@@ -48,5 +48,4 @@
 - 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
 - 2: Atsisiuskite bent vieną iš jų.
 - 3: *UNIX SISTEMA* terminale įėję į programos aplankalą parašykite `make`
-- 4: Atidarykite sukurtą makefile failo aplankale  
-- 5: Baigus naudoti parasykite `make clean`
+- 4: Baigus naudoti parasykite `make clean`
