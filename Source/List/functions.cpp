@@ -35,7 +35,10 @@ int naujasStudentas(int& studentusk, list<studentai>& M, bool& vidurkis){
                     while(!ss.eof()){
                         studentai k;
                         studentusk++;
-                        ss >> k.vardas >> k.pavarde;
+                        string vardas, pavarde;
+                        ss >> vardas >> pavarde;
+                        k.setVardas(vardas);
+                        k.setPavarde(pavarde);
                         for(int i = 0; i<stulpeliai-3;i++){
                             ss >> pasirinkimas;
                             suma+=atof(pasirinkimas.c_str());
@@ -43,11 +46,11 @@ int naujasStudentas(int& studentusk, list<studentai>& M, bool& vidurkis){
                         }
                         ss >> p;
                         namudarbai.push_back(atof(p.c_str()));
-                        if(vidurkis==true)
-                            k.galutinisVid=((double)(suma/(stulpeliai-3)) * 0.40 + 0.60 * atof(p.c_str()));
-                        else{
-                            sort(namudarbai.begin(),namudarbai.end());
-                            k.galutinisMed=mediana(namudarbai, stulpeliai-2);
+                        if (vidurkis == true)
+                            k.setGalutinisVid(((double)(suma / (stulpeliai - 3)) * 0.40 + 0.60 * atof(p.c_str())));
+                        else {
+                            sort(namudarbai.begin(), namudarbai.end());
+                            k.setGalutinisMed(mediana(namudarbai, stulpeliai - 2));
                         }
                         M.push_back(k);
                         suma = 0;
@@ -76,17 +79,21 @@ int naujasStudentas(int& studentusk, list<studentai>& M, bool& vidurkis){
     cin >> pasirinkimas;
     if(pasirinkimas=="y" || pasirinkimas=="Y"){
             studentusk++;
+            M.push_back(studentai());
+            string t;
             cout << "Iveskite studento varda: ";
-            cin >> k.vardas;
+            cin >> t;
+            M.end()->setVardas(t);
             cout << endl << "Iveskite studento pavarde: ";
-            cin >> k.pavarde;
+            cin >> t;
+            M.end()->setPavarde(t);
             cout << endl << "Ar norite atsitiktinai sugeneruoti rezultatus? (Y/N): ";
             cin >> pasirinkimas;
-            if(pasirinkimas == "Y" || pasirinkimas == "y"){
+            if (pasirinkimas == "Y" || pasirinkimas == "y") {
                 int limitas = rand() % 100 + 1;
-                for(int i = 0; i<limitas;i++){
+                for (int i = 0; i < limitas; i++) {
                     masyvod++;
-                         namudarbai.push_back(rand() % 10 + 1);
+                    namudarbai.push_back(rand() % 10 + 1);
                     namudarbai.push_back(rand() % 10 + 1); // egzamino balas
                 }
             }
@@ -144,9 +151,9 @@ int naujasStudentas(int& studentusk, list<studentai>& M, bool& vidurkis){
     }
         for(auto i : namudarbai)
             suma+=i;
-        k.galutinisVid = (double)suma/(masyvod-1) * 0.4 + 0.6 * namudarbai.back();
+        k.setGalutinisVid((double)suma/(masyvod-1) * 0.4 + 0.6 * namudarbai.back());
         sort(namudarbai.begin(),namudarbai.end());
-        k.galutinisMed = mediana(namudarbai,masyvod);
+        k.setGalutinisMed(mediana(namudarbai,masyvod));
         M.push_back(k);
         cout << "-----------------------------------------" << endl;
         namudarbai.clear();
@@ -156,11 +163,11 @@ int naujasStudentas(int& studentusk, list<studentai>& M, bool& vidurkis){
 double mediana(vector<int>M, int masyvod){
     return masyvod%2==0 ? (double)(((M[(masyvod/2)-2]) + (M[(masyvod/2)]))/2.0) : M[(masyvod/2)];
 }
-bool lyginimas(const studentai& a, const studentai& b){
-    return a.pavarde < b.pavarde;
+bool lyginimas( studentai& a, studentai& b){
+    return a.getPavarde() < b.getPavarde();
 }
-bool testLyginimas(const studentai& a, const studentai& b){
-    return a.galutinisVid > b.galutinisVid;
+bool testLyginimas(studentai& a, studentai& b){
+    return a.getGalutinisVid() > b.getGalutinisVid();
 }
 void spausdinti(list<studentai>& studentas, bool vidurkis, ofstream& ff){
     char buffer[80];
@@ -172,14 +179,14 @@ void spausdinti(list<studentai>& studentas, bool vidurkis, ofstream& ff){
     for(int i = 0; i<80;i++,ff << "-");
     ff << "\n";
     if(vidurkis==true){
-        for(auto i : studentas){
-                sprintf(buffer,"%-20s %-20s %-20.2lf \n", i.pavarde.c_str(), i.vardas.c_str(), i.galutinisVid);
+        for (auto i : studentas) {
+            sprintf(buffer, "%-20s %-20s %-20.2lf \n", i.getPavarde().c_str(), i.getVardas().c_str(), i.getGalutinisVid());
             ff << buffer;
         }
     }
-    else{
-        for(auto i : studentas){
-                sprintf(buffer,"%-20s %-20s %-20.2lf \n", i.pavarde.c_str(), i.vardas.c_str(), i.galutinisMed);
+    else {
+        for (auto i : studentas) {
+            sprintf(buffer, "%-20s %-20s %-20.2lf \n", i.getPavarde().c_str(), i.getVardas().c_str(), i.getGalutinisMed());
             ff << buffer;
         }
     }
@@ -217,11 +224,14 @@ void TestNuskaitymas(string pasirinkimas, int& b, list <studentai>& M){
                 if(pasirinkimas=="Egz." || pasirinkimas=="Egzaminas")
                     break;
             }
+            string t1,t2;
             while(!ss.eof()){
-                studentai k;
-                ss >> k.vardas >> k.pavarde >> p;
-                k.galutinisVid = atof(p.c_str());
-                M.push_back(k);
+            studentai k;
+            ss >> t1 >> t2 >> p;
+            k.setVardas(t1);
+            k.setPavarde(t2);
+            k.setGalutinisVid(atof(p.c_str()));
+            M.push_back(k);
             }
         }
     auto end = std::chrono::high_resolution_clock::now();
@@ -231,7 +241,7 @@ void TestNuskaitymas(string pasirinkimas, int& b, list <studentai>& M){
 void TestRusiavimas(int& k,list <studentai>& studentas, list<studentai>& kietekai){
     auto start = std::chrono::high_resolution_clock::now();
     for (auto i : studentas) {
-        if (i.galutinisVid < 5)
+        if (i.getGalutinisVid() < 5)
             kietekai.push_back(i);
     }
     studentas.resize(studentas.size() - kietekai.size());
