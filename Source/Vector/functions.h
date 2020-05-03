@@ -27,6 +27,7 @@ private:
     double galutinisVid;
     double galutinisMed;
 public:
+    studentai& operator=(const studentai& gc1);
     inline string getVardas() const { return vardas;}
     inline string getPavarde() const {return pavarde;}
     inline double getGalutinisVid() const {return galutinisVid;}
@@ -37,6 +38,7 @@ public:
     inline void setGalutinisMed(double x){ this->galutinisMed = x;}
 
 };
+ofstream& operator << (ofstream& os, const studentai& gc);
 int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis);
 double mediana(vector<int>M, int masyvod);
 bool lyginimas( studentai& a, studentai& b);
