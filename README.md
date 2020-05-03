@@ -43,7 +43,8 @@
   Ištestuojami 01 02 03 flag'ai Vector konteineryje:  
   ![](010203testai.png)  
   Išvados: 01 flag labiausiai paspartina įrašymą, 02 nuskaitymą, 03 rušiavimą.
- 
+- V1.2: Sukurtas operator overload su operatoriais << ir =  
+
 # NAUDOJIMOSI INSTRUKCIJA**
 - 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
 - 2: Atsisiuskite bent vieną iš jų.
