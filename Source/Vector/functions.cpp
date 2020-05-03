@@ -158,6 +158,21 @@ int naujasStudentas(int& studentusk, vector<studentai>& M, bool& vidurkis) {
     naujasStudentas(studentusk, M, vidurkis);
     return 0;
 }
+ofstream& operator << (ofstream& os, const studentai& gc){
+    char buffer[80];
+    sprintf(buffer, "%-20s %-20s %-20.2lf \n", gc.getPavarde().c_str(), gc.getVardas().c_str(), gc.getGalutinisVid());
+    os << buffer;
+    return os;
+}
+studentai& studentai::operator=(const studentai& gc1){
+    if(this == &gc1)
+        return *this;
+    this->vardas = gc1.vardas;
+    this->pavarde = gc1.pavarde;
+    this->galutinisMed = gc1.galutinisMed;
+    this->galutinisVid = gc1.galutinisVid;
+    return *this;
+}
 double mediana(vector<int>M, int masyvod) {
     return masyvod % 2 == 0 ? (double)(((M[(masyvod / 2) - 2]) + (M[(masyvod / 2)])) / 2.0) : M[(masyvod / 2)];
 }
@@ -178,14 +193,14 @@ void spausdinti(vector<studentai>& studentas, bool vidurkis, ofstream& ff) {
     ff << "\n";
     if (vidurkis == true) {
         for (auto i : studentas) {
-            sprintf(buffer, "%-20s %-20s %-20.2lf \n", i.getPavarde().c_str(), i.getVardas().c_str(), i.getGalutinisVid());
-            ff << buffer;
+            //sprintf(buffer, "%-20s %-20s %-20.2lf \n", i.getPavarde().c_str(), i.getVardas().c_str(), i.getGalutinisVid());
+            ff << i;
         }
     }
     else {
         for (auto i : studentas) {
-            sprintf(buffer, "%-20s %-20s %-20.2lf \n", i.getPavarde().c_str(), i.getVardas().c_str(), i.getGalutinisMed());
-            ff << buffer;
+            //sprintf(buffer, "%-20s %-20s %-20.2lf \n", i.getPavarde().c_str(), i.getVardas().c_str(), i.getGalutinisMed());
+            ff << i;
         }
     }
 }
