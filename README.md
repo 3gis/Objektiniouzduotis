@@ -44,6 +44,7 @@
   ![](010203testai.png)  
   Išvados: 01 flag labiausiai paspartina įrašymą, 02 nuskaitymą, 03 rušiavimą.
 - V1.2: Sukurtas operator overload su operatoriais << ir =  
+- V1.5: Sukurta abstrakčioji klasė zmogus ir išvestinė klasė studentai.
 
 # NAUDOJIMOSI INSTRUKCIJA**
 - 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
