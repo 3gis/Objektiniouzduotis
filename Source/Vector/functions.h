@@ -20,20 +20,24 @@ using std::vector;
 using std::ifstream;
 using std::ofstream;
 
-class studentai {
-private:
+class zmogus{
+protected:
     string vardas;
     string pavarde;
+public:
+    inline virtual string getVardas() const  {return vardas;}
+    inline virtual string getPavarde() const {return pavarde;}
+    inline virtual void setVardas(string x) {this-> vardas = x;}
+    inline virtual void setPavarde(string x) {this-> pavarde = x;}
+};
+class studentai : public zmogus {
+private:
     double galutinisVid;
     double galutinisMed;
 public:
     studentai& operator=(const studentai& gc1);
-    inline string getVardas() const { return vardas;}
-    inline string getPavarde() const {return pavarde;}
     inline double getGalutinisVid() const {return galutinisVid;}
     inline double getGalutinisMed() const {return galutinisMed;}
-    inline void setVardas(string x) {this-> vardas = x;}
-    inline void setPavarde(string x) {this-> pavarde = x;}
     inline void setGalutinisVid(double x){ this->galutinisVid = x;}
     inline void setGalutinisMed(double x){ this->galutinisMed = x;}
 
