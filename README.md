@@ -45,9 +45,10 @@
   Išvados: 01 flag labiausiai paspartina įrašymą, 02 nuskaitymą, 03 rušiavimą.
 - V1.2: Sukurtas operator overload su operatoriais << ir =  
 - V1.5: Sukurta abstrakčioji klasė zmogus ir išvestinė klasė studentai.
-
-# NAUDOJIMOSI INSTRUKCIJA**
+- V2.0: Sukurta doxygen dokumentacija (doxygen.rar failas)  
+        Panaudotas acutest.h framework'as unit testams.
+# NAUDOJIMOSI INSTRUKCIJA (UNIX) **
 - 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
 - 2: Atsisiuskite bent vieną iš jų.
-- 3: *UNIX SISTEMA* terminale įėję į programos aplankalą parašykite `make`
+- 3: Konsolėje, įėję į programos aplankalą, parašykite `make` ir `./main`
 - 4: Baigus naudoti parasykite `make clean`
