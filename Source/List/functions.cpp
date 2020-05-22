@@ -176,7 +176,7 @@ studentai& studentai::operator=(const studentai& gc1){
     return *this;
 }
 double mediana(vector<int>M, int masyvod){
-    return masyvod%2==0 ? (double)(((M[(masyvod/2)-2]) + (M[(masyvod/2)]))/2.0) : M[(masyvod/2)];
+    return masyvod%2==0 ? (double)(((M[(masyvod/2)-1]) + (M[(masyvod/2)]))/2.0) : M[(masyvod/2)];
 }
 bool lyginimas( studentai& a, studentai& b){
     return a.getPavarde() < b.getPavarde();
