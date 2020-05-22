@@ -47,7 +47,7 @@
 - V1.5: Sukurta abstrakčioji klasė zmogus ir išvestinė klasė studentai.
 - V2.0: Sukurta doxygen dokumentacija (doxygen.rar failas)  
         Panaudotas acutest.h framework'as unit testams.
-# NAUDOJIMOSI INSTRUKCIJA (UNIX) **
+# NAUDOJIMOSI INSTRUKCIJA (UNIX) 
 - 1: Failai yra Source aplankale. Vektoriai Source/vector Deque Source/deque List Source/list
 - 2: Atsisiuskite bent vieną iš jų.
 - 3: Konsolėje, įėję į programos aplankalą, parašykite `make` ir `./main`
